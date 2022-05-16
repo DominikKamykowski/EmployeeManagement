@@ -21,6 +21,8 @@ Title="AddEmployee" Height="536" Width="305" ResizeMode="NoResize">
         <TextBox x:Name="TxtPESEL" HorizontalAlignment="Left" Margin="145,103,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="139" Height="26"/>
         <TextBox x:Name="TxtCity" HorizontalAlignment="Left" Margin="145,134,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="139" Height="26"/>
         <TextBox x:Name="TxtStreet" HorizontalAlignment="Left" Margin="145,165,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="139" Height="26"/>
+        <TextBox x:Name="TxtSeniority" HorizontalAlignment="Left" Height="23" Margin="145,196,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="139"/>
+
         <ComboBox x:Name="CbContract" HorizontalAlignment="Left" Margin="145,227,0,0" VerticalAlignment="Top" Width="139" Height="26">
             <ComboBoxItem Content="Umowa o pracę"/>
             <ComboBoxItem Content="Umowa o dzieło"/>
@@ -28,6 +30,8 @@ Title="AddEmployee" Height="536" Width="305" ResizeMode="NoResize">
             <ComboBoxItem Content="Kontrakt"/>
         </ComboBox>
         <TextBox x:Name="TxtPayment" HorizontalAlignment="Left" Margin="145,258,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="139" Height="26"/>
+        <TextBox x:Name="TxtPhoneNumber" HorizontalAlignment="Left" Margin="145,289,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="139" Height="26"/>
+
         <GroupBox Header="Kursy i certyfikaty:" Margin="10,320,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="274">
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -40,9 +44,7 @@ Title="AddEmployee" Height="536" Width="305" ResizeMode="NoResize">
             </Grid>
         </GroupBox>
         <Button x:Name="BtnAdd" Content="Dodaj" HorizontalAlignment="Left" Margin="10,417,0,0" VerticalAlignment="Top" Height="24" Width="90" Click="BtnAdd_Click"/>
-        <Button x:Name="BtnCancel" Content="Anuluj" HorizontalAlignment="Left" Margin="194,416,0,0" VerticalAlignment="Top" Height="25" Width="90"/>
+        <Button x:Name="BtnCancel" Content="Anuluj" HorizontalAlignment="Left" Margin="194,416,0,0" VerticalAlignment="Top" Height="25" Width="90" Click="BtnCancel_Click"/>
         <Label x:Name="LblSalary_Copy" Content="Numer telefonu:" HorizontalAlignment="Left" Margin="10,289,0,0" VerticalAlignment="Top" Width="130"/>
-        <TextBox x:Name="TxtPhoneNumber" HorizontalAlignment="Left" Margin="145,289,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="139" Height="26"/>
-        <TextBox x:Name="TxtSeniority" HorizontalAlignment="Left" Height="23" Margin="145,196,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="139"/>
     </Grid>
 </Window>

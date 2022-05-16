@@ -49,10 +49,16 @@ namespace EmployeeManagement
             try
             {
                 w64096Entities database = new w64096Entities();
-                database.Employee.Add(employee);
-                database.SaveChanges();
+                
+                if (!IsEmployeeExist(employee))
+                {
+                    database.Employee.Add(employee);
+                    database.SaveChanges();
+                }
+
+                
             }
-            catch(Exception ex)
+            catch(Exception)
             {
                 
                 
@@ -60,9 +66,31 @@ namespace EmployeeManagement
             
         }
 
+        public static bool IsEmployeeExist(Employee employee)
+        {
+            w64096Entities database = new w64096Entities();
+            List<Employee> _employeesList = database.Employee.ToList();
+            bool _return = false;
+
+            foreach(var _employee in _employeesList)
+            {
+                if (_employee.Name.Equals(employee.Name) && _employee.SureName.Equals(employee.SureName))
+                {
+                    _return = true;
+                }
+            }
+
+            return _return;
+        }
+
         private static int ConvertBool(bool isChecked)
         {
             return isChecked ? 1 : 0;
+        }
+
+        private void BtnCancel_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }
