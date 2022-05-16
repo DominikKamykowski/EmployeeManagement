@@ -39,5 +39,12 @@ namespace EmployeeManagement
             DGEmployeesData.DataContext = obsEmployees;
             DGEmployeesData.ItemsSource = obsEmployees;
         }
+
+        private void BtnAddEmployee_Click(object sender, RoutedEventArgs e)
+        {
+            AddEmployee addEmployeeWindow = new AddEmployee();
+            addEmployeeWindow.Show();
+
+        }
     }
 }

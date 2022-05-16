@@ -21,12 +21,6 @@ Title="AddEmployee" Height="536" Width="305" ResizeMode="NoResize">
         <TextBox x:Name="TxtPESEL" HorizontalAlignment="Left" Margin="145,103,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="139" Height="26"/>
         <TextBox x:Name="TxtCity" HorizontalAlignment="Left" Margin="145,134,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="139" Height="26"/>
         <TextBox x:Name="TxtStreet" HorizontalAlignment="Left" Margin="145,165,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="139" Height="26"/>
-        <ComboBox x:Name="CbSeniority" HorizontalAlignment="Left" Margin="145,196,0,0" VerticalAlignment="Top" Width="139" Height="26">
-            <ComboBoxItem Content="0 - 1 rok"/>
-            <ComboBoxItem Content="1 - 2 lata"/>
-            <ComboBoxItem Content="3 - 5 lat"/>
-            <ComboBoxItem Content="> 5 lat"/>
-        </ComboBox>
         <ComboBox x:Name="CbContract" HorizontalAlignment="Left" Margin="145,227,0,0" VerticalAlignment="Top" Width="139" Height="26">
             <ComboBoxItem Content="Umowa o pracę"/>
             <ComboBoxItem Content="Umowa o dzieło"/>
@@ -49,5 +43,6 @@ Title="AddEmployee" Height="536" Width="305" ResizeMode="NoResize">
         <Button x:Name="BtnCancel" Content="Anuluj" HorizontalAlignment="Left" Margin="194,416,0,0" VerticalAlignment="Top" Height="25" Width="90"/>
         <Label x:Name="LblSalary_Copy" Content="Numer telefonu:" HorizontalAlignment="Left" Margin="10,289,0,0" VerticalAlignment="Top" Width="130"/>
         <TextBox x:Name="TxtPhoneNumber" HorizontalAlignment="Left" Margin="145,289,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="139" Height="26"/>
+        <TextBox x:Name="TxtSeniority" HorizontalAlignment="Left" Height="23" Margin="145,196,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="139"/>
     </Grid>
 </Window>
