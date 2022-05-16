@@ -1,0 +1,53 @@
+﻿<Window x:Class="EmployeeManagement.AddEmployee"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EmployeeManagement"
+        mc:Ignorable="d"
+Title="AddEmployee" Height="536" Width="305" ResizeMode="NoResize">
+    <Grid Margin="0,0,0,0">
+        <Label Content="Dodawanie pracownika" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="274" FontStyle="Normal" FontStretch="Normal" FontWeight="Regular" HorizontalContentAlignment="Center"/>
+        <Label Content="Imię:" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Width="130"/>
+        <Label Content="Nazwisko:" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top" Width="130"/>
+        <Label Content="Miasto:" HorizontalAlignment="Left" Margin="10,134,0,0" VerticalAlignment="Top" Width="130"/>
+        <Label Content="Ulica:" HorizontalAlignment="Left" Margin="10,165,0,0" VerticalAlignment="Top" Width="130"/>
+        <Label Content="Staż pracy:" HorizontalAlignment="Left" Margin="10,196,0,0" VerticalAlignment="Top" Width="130"/>
+        <Label Content="Rodzaj umowy:" HorizontalAlignment="Left" Margin="10,227,0,0" VerticalAlignment="Top" Width="130"/>
+        <Label Content="PESEL:" HorizontalAlignment="Left" Margin="10,103,0,0" VerticalAlignment="Top" Width="130"/>
+        <Label x:Name="LblSalary" Content="Wynagrodzenie:" HorizontalAlignment="Left" Margin="10,258,0,0" VerticalAlignment="Top" Width="130"/>
+        <TextBox x:Name="TxtName" HorizontalAlignment="Left" Margin="145,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="139" Height="26"/>
+        <TextBox x:Name="TxtSureName" HorizontalAlignment="Left" Margin="145,72,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="139" Height="26"/>
+        <TextBox x:Name="TxtPESEL" HorizontalAlignment="Left" Margin="145,103,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="139" Height="26"/>
+        <TextBox x:Name="TxtCity" HorizontalAlignment="Left" Margin="145,134,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="139" Height="26"/>
+        <TextBox x:Name="TxtStreet" HorizontalAlignment="Left" Margin="145,165,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="139" Height="26"/>
+        <ComboBox x:Name="CbSeniority" HorizontalAlignment="Left" Margin="145,196,0,0" VerticalAlignment="Top" Width="139" Height="26">
+            <ComboBoxItem Content="0 - 1 rok"/>
+            <ComboBoxItem Content="1 - 2 lata"/>
+            <ComboBoxItem Content="3 - 5 lat"/>
+            <ComboBoxItem Content="> 5 lat"/>
+        </ComboBox>
+        <ComboBox x:Name="CbContract" HorizontalAlignment="Left" Margin="145,227,0,0" VerticalAlignment="Top" Width="139" Height="26">
+            <ComboBoxItem Content="Umowa o pracę"/>
+            <ComboBoxItem Content="Umowa o dzieło"/>
+            <ComboBoxItem Content="Umowa zlecenie"/>
+            <ComboBoxItem Content="Kontrakt"/>
+        </ComboBox>
+        <TextBox x:Name="TxtPayment" HorizontalAlignment="Left" Margin="145,258,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="139" Height="26"/>
+        <GroupBox Header="Kursy i certyfikaty:" Margin="10,320,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="274">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="37*"/>
+                    <ColumnDefinition Width="94*"/>
+                </Grid.ColumnDefinitions>
+                <CheckBox x:Name="ChckB" Content="Prawo jazdy kat. B" HorizontalAlignment="Left" VerticalAlignment="Top" Height="18" Width="137" Margin="0,5,0,0" Grid.ColumnSpan="2"/>
+                <CheckBox x:Name="ChckSEP" Content="SEP" HorizontalAlignment="Left" VerticalAlignment="Top" Height="18" Width="138" Grid.ColumnSpan="2" Margin="0,28,0,0"/>
+                <CheckBox x:Name="ChckHeight" Content="Wysokościowe" HorizontalAlignment="Left" Margin="0,51,0,0" VerticalAlignment="Top" Height="18" Width="138" Grid.ColumnSpan="2"/>
+            </Grid>
+        </GroupBox>
+        <Button x:Name="BtnAdd" Content="Dodaj" HorizontalAlignment="Left" Margin="10,417,0,0" VerticalAlignment="Top" Height="24" Width="90" Click="BtnAdd_Click"/>
+        <Button x:Name="BtnCancel" Content="Anuluj" HorizontalAlignment="Left" Margin="194,416,0,0" VerticalAlignment="Top" Height="25" Width="90"/>
+        <Label x:Name="LblSalary_Copy" Content="Numer telefonu:" HorizontalAlignment="Left" Margin="10,289,0,0" VerticalAlignment="Top" Width="130"/>
+        <TextBox x:Name="TxtPhoneNumber" HorizontalAlignment="Left" Margin="145,289,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="139" Height="26"/>
+    </Grid>
+</Window>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +24,20 @@ namespace EmployeeManagement
         public MainWindow()
         {
             InitializeComponent();
+
+            DatabaseViewInitialize();
+        }
+
+        private void DatabaseViewInitialize()
+        {
+            w64096Entities database = new w64096Entities();
+
+            List<Employee> pracownicy = database.Employee.ToList();
+
+            ObservableCollection<Employee> obsEmployees = new ObservableCollection<Employee>(pracownicy);
+
+            DGEmployeesData.DataContext = obsEmployees;
+            DGEmployeesData.ItemsSource = obsEmployees;
         }
     }
 }

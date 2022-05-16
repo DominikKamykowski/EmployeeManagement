@@ -19,3 +19,5 @@ D:\GoogleDysk\ProjektST1\EmployeeManagement\obj\Debug\EmployeeManagement.csproj.
 D:\GoogleDysk\ProjektST1\EmployeeManagement\obj\Debug\EmployeeManagement.csproj.CopyComplete
 D:\GoogleDysk\ProjektST1\EmployeeManagement\obj\Debug\EmployeeManagement.exe
 D:\GoogleDysk\ProjektST1\EmployeeManagement\obj\Debug\EmployeeManagement.pdb
+D:\GoogleDysk\ProjektST1\EmployeeManagement\obj\Debug\AddEmployee.g.cs
+D:\GoogleDysk\ProjektST1\EmployeeManagement\obj\Debug\AddEmployee.baml
