@@ -41,6 +41,26 @@ namespace EmployeeManagement
             TxtPayment.Text = employee.Salary.ToString();
             TxtSeniority.Text = employee.Seniority.ToString();
 
+            switch (employee.Contract)
+            {
+                case "Umowa o pracę":
+                    CbContract.SelectedIndex = 0;
+                    break;
+                case "Umowa o dzieło":
+                    CbContract.SelectedIndex = 1;
+                    break;
+                case "Umowa zlecenie":
+                    CbContract.SelectedIndex = 2;
+                    break;
+                case "Kontrakt":
+                    CbContract.SelectedIndex = 3;
+                    break;
+                default:
+                    break;
+            }
+
+
+
             if (employee.High == 1)
             {
                 ChckHeight.IsChecked = true;
@@ -84,11 +104,55 @@ namespace EmployeeManagement
             var result = database.Employee.SingleOrDefault(x => x.ID == EmployeeState.ID);
             if (result != null)
             {
-                result.Salary = int.Parse(TxtPayment.Text);
-                database.SaveChanges();
+                SaveEmployee(result);
+
+
                 //Messagebox
+                string context = "Czy na pewno chcesz zapisać parametry?";
+                string title = "Edycja Pracownika";
+                MessageBoxButton button = MessageBoxButton.YesNo;
+                MessageBoxImage image_ = MessageBoxImage.Question;
+                MessageBoxResult MsgBoxResult = MessageBoxResult.No;
+                MessageBoxResult MsgResult = MessageBox.Show(context,title ,button, image_,MsgBoxResult);
+                switch (MsgResult)
+                {
+                    case MessageBoxResult.Yes:
+                        database.SaveChanges();
+                        break;
+
+                    case MessageBoxResult.No:
+                        Close();
+                        break;
+
+                    default:
+                        break;
+                }
+
             }
             Close();
+        }
+
+        private void SaveEmployee(Employee result)
+        {
+            result.Name = TxtName.Text;
+            result.SureName = TxtSureName.Text;
+            result.PESEL = TxtPESEL.Text;
+            result.City = TxtCity.Text;
+            result.Street = TxtStreet.Text;
+            result.Salary = int.Parse(TxtPayment.Text);
+            result.DriverLivence = ConvertBool((bool)ChckB.IsChecked);
+            result.High = ConvertBool((bool)ChckHeight.IsChecked);
+            result.Sep = ConvertBool((bool)ChckSEP.IsChecked);
+            result.PhoneNumber = TxtPhoneNumber.Text;
+            result.Seniority = int.Parse(TxtSeniority.Text);
+            result.Contract = CbContract.Text;
+
+
+        }
+
+        private int? ConvertBool(bool isChecked)
+        {
+            return isChecked ? 1 : 0;
         }
     }
 }
