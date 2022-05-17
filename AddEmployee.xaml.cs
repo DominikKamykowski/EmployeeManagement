@@ -76,7 +76,7 @@ namespace EmployeeManagement
 
             foreach(var _employee in _employeesList)
             {
-                if (_employee.Name.Equals(employee.Name) && _employee.SureName.Equals(employee.SureName))
+                if (_employee.PESEL.Equals(employee.PESEL))
                 {
                     _return = true;
                 }

@@ -44,6 +44,7 @@ namespace EmployeeManagement
         {
             AddEmployee addEmployeeWindow = new AddEmployee();
             addEmployeeWindow.Show();
+            
 
         }
 
@@ -72,5 +73,41 @@ namespace EmployeeManagement
                 DataGridRefresh();
             }
         }
+
+        private void BtnEditEmployee_Click(object sender, RoutedEventArgs e)
+        {
+            var employee = DGEmployeesData.SelectedItem as Employee;
+            if (employee != null)
+            {
+                w64096Entities database = new w64096Entities();
+                Employee _employee = database.Employee.Find(employee.ID);
+
+                AddEmployee editEmployee = new AddEmployee();
+                editEmployee.BtnAdd.Content = "Zapisz";
+                editEmployee.TxtCity.Text = _employee.City;
+                editEmployee.TxtName.Text = _employee.Name;
+                editEmployee.TxtSureName.Text = _employee.SureName;
+                editEmployee.TxtPESEL.Text = _employee.PESEL;
+                editEmployee.TxtPhoneNumber.Text = _employee.PhoneNumber;
+                editEmployee.TxtStreet.Text = _employee.Street;
+
+                var employee_ = DGEmployeesData.SelectedItem as Employee;
+                if (employee_ != null)
+                {
+                    w64096Entities database1 = new w64096Entities();
+                    Employee delete = database1.Employee.Find(employee_.ID);
+
+                    database1.Employee.Remove(delete);
+                    database1.SaveChanges();
+
+                    DataGridRefresh();
+                }
+
+                editEmployee.Show();
+
+                DataGridRefresh();
+            }
+        }
+
     }
 }
