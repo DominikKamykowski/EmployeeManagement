@@ -21,3 +21,5 @@ D:\GoogleDysk\ProjektST1\EmployeeManagement\obj\Debug\EmployeeManagement.exe
 D:\GoogleDysk\ProjektST1\EmployeeManagement\obj\Debug\EmployeeManagement.pdb
 D:\GoogleDysk\ProjektST1\EmployeeManagement\obj\Debug\AddEmployee.g.cs
 D:\GoogleDysk\ProjektST1\EmployeeManagement\obj\Debug\AddEmployee.baml
+D:\GoogleDysk\ProjektST1\EmployeeManagement\obj\Debug\EditEmployee.g.cs
+D:\GoogleDysk\ProjektST1\EmployeeManagement\obj\Debug\EditEmployee.baml
