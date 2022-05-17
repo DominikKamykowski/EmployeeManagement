@@ -42,6 +42,7 @@ namespace EmployeeManagement
             employee.Contract = CbContract.Text;
 
             AddEmployeeToDB(employee);
+            Close();
         }
 
         private void AddEmployeeToDB(Employee employee)
@@ -53,9 +54,10 @@ namespace EmployeeManagement
                 if (!IsEmployeeExist(employee))
                 {
                     database.Employee.Add(employee);
-                    database.SaveChanges();
+                    int value = database.SaveChanges();
+                    MessageBox.Show($"Pracownik dodany! {value}");  //Msg do dopracowania
                 }
-
+                
                 
             }
             catch(Exception)

@@ -46,5 +46,31 @@ namespace EmployeeManagement
             addEmployeeWindow.Show();
 
         }
+
+        public void DataGridRefresh()
+        {
+            DGEmployeesData.ItemsSource = null;
+            DatabaseViewInitialize();
+        }
+
+        private void BtnRefreshDataGridView_Click(object sender, RoutedEventArgs e)
+        {
+            DataGridRefresh();
+        }
+
+        private void BtnDeleteEmployee_Click(object sender, RoutedEventArgs e)
+        {
+            var employee = DGEmployeesData.SelectedItem as Employee;
+            if (employee != null)
+            {
+                w64096Entities database = new w64096Entities();
+                Employee delete = database.Employee.Find(employee.ID);
+                
+                database.Employee.Remove(delete);
+                database.SaveChanges();
+
+                DataGridRefresh();
+            }
+        }
     }
 }
