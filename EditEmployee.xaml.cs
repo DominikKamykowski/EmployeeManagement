@@ -32,14 +32,14 @@ namespace EmployeeManagement
 
         private void FillFormula(Employee employee)
         {
-            TxtName.Text = employee.Name;
-            TxtSureName.Text = employee.SureName;
-            TxtCity.Text = employee.City;
-            TxtStreet.Text = employee.Street;
-            TxtPESEL.Text = employee.PESEL;
+            TxtName.Text        = employee.Name;
+            TxtSureName.Text    = employee.SureName;
+            TxtCity.Text        = employee.City;
+            TxtStreet.Text      = employee.Street;
+            TxtPESEL.Text       = employee.PESEL;
             TxtPhoneNumber.Text = employee.PhoneNumber;
-            TxtPayment.Text = employee.Salary.ToString();
-            TxtSeniority.Text = employee.Seniority.ToString();
+            TxtPayment.Text     = employee.Salary.ToString();
+            TxtSeniority.Text   = employee.Seniority.ToString();
 
             switch (employee.Contract)
             {
@@ -134,18 +134,18 @@ namespace EmployeeManagement
 
         private void SaveEmployee(Employee result)
         {
-            result.Name = TxtName.Text;
-            result.SureName = TxtSureName.Text;
-            result.PESEL = TxtPESEL.Text;
-            result.City = TxtCity.Text;
-            result.Street = TxtStreet.Text;
-            result.Salary = int.Parse(TxtPayment.Text);
-            result.DriverLivence = ConvertBool((bool)ChckB.IsChecked);
-            result.High = ConvertBool((bool)ChckHeight.IsChecked);
-            result.Sep = ConvertBool((bool)ChckSEP.IsChecked);
-            result.PhoneNumber = TxtPhoneNumber.Text;
-            result.Seniority = int.Parse(TxtSeniority.Text);
-            result.Contract = CbContract.Text;
+            result.Name             = TxtName.Text;
+            result.SureName         = TxtSureName.Text;
+            result.PESEL            = TxtPESEL.Text;
+            result.City             = TxtCity.Text;
+            result.Street           = TxtStreet.Text;
+            result.Salary           = int.Parse(TxtPayment.Text);
+            result.DriverLivence    = ConvertBool((bool)ChckB.IsChecked);
+            result.High             = ConvertBool((bool)ChckHeight.IsChecked);
+            result.Sep              = ConvertBool((bool)ChckSEP.IsChecked);
+            result.PhoneNumber      = TxtPhoneNumber.Text;
+            result.Seniority        = int.Parse(TxtSeniority.Text);
+            result.Contract         = CbContract.Text;
 
 
         }
