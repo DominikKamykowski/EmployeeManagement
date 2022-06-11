@@ -72,34 +72,53 @@ namespace EmployeeManagement
             DatabaseViewInitialize();
         }
 
+
+        /// <summary>
+        /// Metoda o obsługująca naciśnięcie klawisza do odświeżania bazy danych w głównym oknie aplikacji.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnRefreshDataGridView_Click(object sender, RoutedEventArgs e)
         {
             DataGridRefresh();
         }
 
+
+
+        /// <summary>
+        /// Metoda obsługująca naciśnięcie klawisza do usuwania pracownika wybranego z listy.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnDeleteEmployee_Click(object sender, RoutedEventArgs e)
         {
-            var employee = DGEmployeesData.SelectedItem as Employee;
-            if (employee != null)
+            var employee = DGEmployeesData.SelectedItem as Employee; //Wybranie pracownika, który jest zaznaczony na liście GUI.
+            if (employee != null) // sprawdzenie czy jakiś pracownik został wybrany.
             { 
-                w64096Entities database = new w64096Entities();
-                Employee delete = database.Employee.Find(employee.ID);
+                w64096Entities database = new w64096Entities(); // instancja bazy danych
+                Employee delete = database.Employee.Find(employee.ID); // Wyszukanie zaznaczonego pracownika w bazie danych.
                 
-                database.Employee.Remove(delete);
+                database.Employee.Remove(delete); // usunięcie pracownika.
                 database.SaveChanges();
 
-                DataGridRefresh();
+                DataGridRefresh(); // odświeżenie zobrazowania bazy danych.
             }
         }
+        
 
+        /// <summary>
+        /// Obsługa metod
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnEditEmployee_Click(object sender, RoutedEventArgs e)
         {
-            var employee = DGEmployeesData.SelectedItem as Employee;
+            var employee = DGEmployeesData.SelectedItem as Employee; // wybranie konkretnego pracownika z listy.
             if (employee != null)
             {
-                w64096Entities database = new w64096Entities();
-                Employee employeeToEdit = database.Employee.Find(employee.ID);
-                EditEmployee edit = new EditEmployee(employeeToEdit);
+                w64096Entities database = new w64096Entities(); // utworzenie instancji bazy danych.
+                Employee employeeToEdit = database.Employee.Find(employee.ID);//znalezienie pracownika w bazie.
+                EditEmployee edit = new EditEmployee(employeeToEdit);//wywołanie GUI do edycji pracownika.
                 edit.Show();
 
             }

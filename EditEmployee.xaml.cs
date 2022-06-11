@@ -127,7 +127,7 @@ namespace EmployeeManagement
             var result = database.Employee.SingleOrDefault(x => x.ID == EmployeeState.ID);
             if (result != null)
             {
-                SaveEmployee(result);
+                SaveEmployee(result); // zapisanie pracownika
 
 
                 //Wyświetlenie Messagebox upewniającego użytkownika o zapisie danych do bazy.
@@ -137,14 +137,15 @@ namespace EmployeeManagement
                 MessageBoxImage image_ = MessageBoxImage.Question;
                 MessageBoxResult MsgBoxResult = MessageBoxResult.No;
                 MessageBoxResult MsgResult = MessageBox.Show(context, title, button, image_, MsgBoxResult);
+
                 switch (MsgResult) // Wybranie ekcji od użytkownika
                 {
-                    case MessageBoxResult.Yes:
-                        database.SaveChanges();
+                    case MessageBoxResult.Yes: // Jeśli użytkownik wybierze "Tak" to zmiany są zapisywane.
+                        database.SaveChanges(); // Zapisanie zmian w bazie danych.
                         break;
 
-                    case MessageBoxResult.No:
-                        Close();
+                    case MessageBoxResult.No: // Jeśli użytkownik wybierze "Nie" to zmiany są odrzucane.
+                        Close(); // Zamknięcie okna edycji.
                         break;
 
                     default:
@@ -181,8 +182,9 @@ namespace EmployeeManagement
         /// <summary>
         /// Metoda konwertująca zaznaczenie CheckBox'a na wartość int.
         /// </summary>
-        /// <param name="isChecked"></param>
-        /// <returns></returns>
+        /// <param name="isChecked">Parametr typu bool przekazywany do zmiany.
+        /// true = 1, false = 0 </param>
+        /// <returns>Odpowiednia liczba typu int: 0 lub 1</returns>
         private int? ConvertBool(bool isChecked)
         {
             return isChecked ? 1 : 0;
