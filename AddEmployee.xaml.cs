@@ -23,9 +23,14 @@ namespace EmployeeManagement
         {
             InitializeComponent();
         }
-
+        /// <summary>
+        /// Funkcja odpowiadająca za naciśnięcie przycisku "Login"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
         {
+            // Stworzenie nowego pracownika i pobranie danych z GUI.
             Employee employee = new Employee();
             
             employee.Name           = TxtName.Text;
@@ -41,39 +46,62 @@ namespace EmployeeManagement
             employee.Seniority      = int.Parse(TxtSeniority.Text);
             employee.Contract       = CbContract.Text;
 
-            AddEmployeeToDB(employee);
+            AddEmployeeToDB(employee); //Dodanie pracownika do bazy danych.
             Close();
         }
 
+
+
+        /// <summary>
+        /// Metoda dodająca pracownika do bazy danych.
+        /// Przyjmuje obiekt klasy Employee.
+        /// </summary>
+        /// <param name="employee"></param>
         private void AddEmployeeToDB(Employee employee)
         {
             try
             {
-                w64096Entities database = new w64096Entities();
+                w64096Entities database = new w64096Entities(); // Utworzenie instancji bazy danych.
                 
-                if (!IsEmployeeExist(employee))
+
+                if (!IsEmployeeExist(employee)) // Sprawdzenie czy istnieje już taki pracownik.
                 {
+                    //Jeśli nie istnieje w bazie danych taki sam pracownik, to następuje dodanie go oraz
+                    //wyświetlenie odpowiedniego komunikatu.
                     database.Employee.Add(employee);
                     database.SaveChanges();
-                    MessageBox.Show($"Pracownik {employee.Name} {employee.SureName} dodany do rejestru.");  //Msg do dopracowania
+                    string tekst = $"Pracownik {employee.Name} {employee.SureName} dodany do rejestru.";
+                    MessageBoxImage image = MessageBoxImage.Information;
+                    MessageBoxButton button = MessageBoxButton.OK;
+
+                    MessageBox.Show(tekst, "Informacja", button, image);
                 }
                 
                 
             }
-            catch(Exception)
+            catch(Exception ex)
             {
-                
+                //Obsługa wyjątku. //TODO
+                string error = ex.ToString();
+                MessageBox.Show(error);
                 
             }
             
         }
 
+        /// <summary>
+        /// Metoda sprawdzająca, czy w bazie danych istnieje już taki sam rekord.
+        /// </summary>
+        /// <param name="employee"></param>
+        /// <returns></returns>
         public static bool IsEmployeeExist(Employee employee)
         {
-            w64096Entities database = new w64096Entities();
-            List<Employee> _employeesList = database.Employee.ToList();
+            w64096Entities database = new w64096Entities(); // Utworzenie instancji bazy danych.
+            List<Employee> _employeesList = database.Employee.ToList(); // Pobranie listy pracowników z bazdy danych.
             bool _return = false;
 
+
+            //Sprawdzenie po identyfikatorze PESEL, czy istnieje już taki pracownik.
             foreach(var _employee in _employeesList)
             {
                 if (_employee.PESEL.Equals(employee.PESEL))
@@ -85,11 +113,21 @@ namespace EmployeeManagement
             return _return;
         }
 
+        /// <summary>
+        /// Metoda konwertująca bool na int zapisywany w bazie.
+        /// </summary>
+        /// <param name="isChecked"></param>
+        /// <returns>Wartość int do bazy danych</returns>
         private static int ConvertBool(bool isChecked)
         {
             return isChecked ? 1 : 0;
         }
 
+        /// <summary>
+        /// Metoda obsługująca naciśnięcie przycisku "Cancel"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnCancel_Click(object sender, RoutedEventArgs e)
         {
             Close();

@@ -19,8 +19,13 @@ namespace EmployeeManagement
     /// </summary>
     public partial class EditEmployee : Window
     {
-        public Employee EmployeeState { get; set; }
+        public Employee EmployeeState { get; set; } //Właściwość pracownika - w celu edycji.
 
+
+        /// <summary>
+        /// Konstruktor klasy. Wypełnia podstawową formatkę z parametru w celu edycji.
+        /// </summary>
+        /// <param name="employee"></param>
         public EditEmployee(Employee employee)
         {
             InitializeComponent();
@@ -30,6 +35,11 @@ namespace EmployeeManagement
             FillFormula(employee);
         }
 
+
+        /// <summary>
+        /// Metoda wypełniająca arkusz do edycji pracownika.
+        /// </summary>
+        /// <param name="employee"></param>
         private void FillFormula(Employee employee)
         {
             TxtName.Text        = employee.Name;
@@ -91,11 +101,24 @@ namespace EmployeeManagement
 
         }
 
+
+        /// <summary>
+        /// Metoda obsługująca naciśnięcie przycisku "Cancel". Zamyka okno i anuluje edycję pracownika.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnCancel_Click(object sender, RoutedEventArgs e)
         {
             Close();
         }
 
+
+        /// <summary>
+        /// Metoda obsługująca naciśnięcie przycisku "Save".
+        /// Zapisuje
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnSave_Click(object sender, RoutedEventArgs e)
         {
 
@@ -107,14 +130,14 @@ namespace EmployeeManagement
                 SaveEmployee(result);
 
 
-                //Messagebox
+                //Wyświetlenie Messagebox upewniającego użytkownika o zapisie danych do bazy.
                 string context = "Czy na pewno chcesz zapisać parametry?";
                 string title = "Edycja Pracownika";
                 MessageBoxButton button = MessageBoxButton.YesNo;
                 MessageBoxImage image_ = MessageBoxImage.Question;
                 MessageBoxResult MsgBoxResult = MessageBoxResult.No;
-                MessageBoxResult MsgResult = MessageBox.Show(context,title ,button, image_,MsgBoxResult);
-                switch (MsgResult)
+                MessageBoxResult MsgResult = MessageBox.Show(context, title, button, image_, MsgBoxResult);
+                switch (MsgResult) // Wybranie ekcji od użytkownika
                 {
                     case MessageBoxResult.Yes:
                         database.SaveChanges();
@@ -132,6 +155,11 @@ namespace EmployeeManagement
             Close();
         }
 
+
+        /// <summary>
+        /// Metoda obsługująca zapis parametrów pracownika.
+        /// </summary>
+        /// <param name="result"></param>
         private void SaveEmployee(Employee result)
         {
             result.Name             = TxtName.Text;
@@ -147,9 +175,14 @@ namespace EmployeeManagement
             result.Seniority        = int.Parse(TxtSeniority.Text);
             result.Contract         = CbContract.Text;
 
-
         }
 
+
+        /// <summary>
+        /// Metoda konwertująca zaznaczenie CheckBox'a na wartość int.
+        /// </summary>
+        /// <param name="isChecked"></param>
+        /// <returns></returns>
         private int? ConvertBool(bool isChecked)
         {
             return isChecked ? 1 : 0;
