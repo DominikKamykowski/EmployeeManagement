@@ -21,33 +21,51 @@ namespace EmployeeManagement
     /// </summary>
     public partial class MainWindow : Window
     {
+     
+        /// <summary>
+        /// Konstruktor głównego okna aplikacji.
+        /// </summary>
         public MainWindow()
         {
             InitializeComponent();
 
-            DatabaseViewInitialize();
+            DatabaseViewInitialize(); // inicjalizacja zobrazowania bazy danych w DataGrid
         }
 
+
+        /// <summary>
+        /// Metoda obsługująca inicjalizację zobrazowania rekordów w bazie danych.
+        /// </summary>
         private void DatabaseViewInitialize()
         {
-            w64096Entities database = new w64096Entities();
+            w64096Entities database = new w64096Entities(); // instancja bazy danych
 
             List<Employee> pracownicy = database.Employee.ToList();
 
             ObservableCollection<Employee> obsEmployees = new ObservableCollection<Employee>(pracownicy);
 
             DGEmployeesData.DataContext = obsEmployees;
-            DGEmployeesData.ItemsSource = obsEmployees;
+            DGEmployeesData.ItemsSource = obsEmployees; // podpięcie bazy danych do widoku z GUI.
         }
 
+
+        /// <summary>
+        /// Medota obsługująca naciśnięcie klawisza dodającego pracownika.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnAddEmployee_Click(object sender, RoutedEventArgs e)
         {
             AddEmployee addEmployeeWindow = new AddEmployee();
-            addEmployeeWindow.Show();
+            addEmployeeWindow.Show(); // Otwarcie okna obsługującego dodanie pracownika.
             
 
         }
 
+
+        /// <summary>
+        /// Funkcja odświeżająca widok DataGrid.
+        /// </summary>
         public void DataGridRefresh()
         {
             DGEmployeesData.ItemsSource = null;
