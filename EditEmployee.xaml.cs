@@ -51,7 +51,7 @@ namespace EmployeeManagement
             TxtPayment.Text     = employee.Salary.ToString();
             TxtSeniority.Text   = employee.Seniority.ToString();
 
-            switch (employee.Contract)
+            switch (employee.Contract) // W zależności od rodzaju umowy ustawienie domyślnej umowy w GUI.
             {
                 case "Umowa o pracę":
                     CbContract.SelectedIndex = 0;
@@ -122,7 +122,7 @@ namespace EmployeeManagement
         private void BtnSave_Click(object sender, RoutedEventArgs e)
         {
 
-            w64096Entities database = new w64096Entities();
+            w64096Entities database = new w64096Entities(); // utworzenie instancji bazy danych.
 
             var result = database.Employee.SingleOrDefault(x => x.ID == EmployeeState.ID);
             if (result != null)

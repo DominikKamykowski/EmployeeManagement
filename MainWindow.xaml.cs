@@ -41,6 +41,7 @@ namespace EmployeeManagement
             w64096Entities database = new w64096Entities(); // instancja bazy danych
 
             List<Employee> pracownicy = database.Employee.ToList();
+            
 
             ObservableCollection<Employee> obsEmployees = new ObservableCollection<Employee>(pracownicy);
 

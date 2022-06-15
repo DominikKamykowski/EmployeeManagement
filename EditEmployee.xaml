@@ -18,7 +18,7 @@
         <Label x:Name="LblSalary" Content="Wynagrodzenie:" HorizontalAlignment="Left" Margin="10,258,0,0" VerticalAlignment="Top" Width="130"/>
         <TextBox x:Name="TxtName" HorizontalAlignment="Left" Margin="145,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="139" Height="26"/>
         <TextBox x:Name="TxtSureName" HorizontalAlignment="Left" Margin="145,72,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="139" Height="26"/>
-        <TextBox x:Name="TxtPESEL" HorizontalAlignment="Left" Margin="145,103,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="139" Height="26"/>
+        <TextBox x:Name="TxtPESEL" HorizontalAlignment="Left" Margin="145,103,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="139" Height="26" IsEnabled="False"/>
         <TextBox x:Name="TxtCity" HorizontalAlignment="Left" Margin="145,134,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="139" Height="26"/>
         <TextBox x:Name="TxtStreet" HorizontalAlignment="Left" Margin="145,165,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="139" Height="26"/>
         <TextBox x:Name="TxtSeniority" HorizontalAlignment="Left" Height="23" Margin="145,196,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="139"/>

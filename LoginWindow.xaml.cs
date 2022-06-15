@@ -19,10 +19,10 @@ namespace EmployeeManagement
     /// </summary>
     public partial class LoginWindow : Window
     {
-        private string Login { get; set; }
+        private string Login { get; set; } 
         private string Password { get; set; }
 
-        private ushort BadLoginTryNumber = 0;
+        private ushort BadLoginTryNumber = 0; /// Przechowywana ilość błędnych prób logowania.
         public LoginWindow()
         {
             InitializeComponent();
@@ -57,7 +57,7 @@ namespace EmployeeManagement
         /// <param name="e"></param>
         private void TxtPassword_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.Return)
+            if (e.Key == Key.Return)//wykrycie przycisku "Enter".
             {
                 LoginFunction();
             }
